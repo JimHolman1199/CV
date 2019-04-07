@@ -40,67 +40,67 @@ $(function(){
 
 /*Javascript Function For Smooth Mouse Scrolling*/
 
-    $.scrollSpeed = function(step, speed) {
+//     $.scrollSpeed = function(step, speed) {
         
-        let $document = $(document),
-            $body = $('html, body'),
-            option = 'default',
-            root = top,
-            scroll = false,
-            scrollY,
-            view;
+//         let $document = $(document),
+//             $body = $('html, body'),
+//             option = 'default',
+//             root = top,
+//             scroll = false,
+//             scrollY,
+//             view;
             
-        if (window.navigator.msPointerEnabled) {
-            return false;
-        }
+//         if (window.navigator.msPointerEnabled) {
+//             return false;
+//         }
             
-        allWindow.on('mousewheel DOMMouseScroll', function(e) {
+//         allWindow.on('mousewheel DOMMouseScroll', function(e) {
             
-            let deltaY = e.originalEvent.wheelDeltaY,
-                detail = e.originalEvent.detail;
-                scrollY = $document.height() > allWindow.height();
-                scroll = true;
+//             let deltaY = e.originalEvent.wheelDeltaY,
+//                 detail = e.originalEvent.detail;
+//                 scrollY = $document.height() > allWindow.height();
+//                 scroll = true;
             
-            if (scrollY) {
+//             if (scrollY) {
                 
-                view = allWindow.height();
+//                 view = allWindow.height();
                     
-                if (deltaY < 0 || detail > 0) {
-                    root = (root + view) >= $document.height() ? root : root += step;
-                }
+//                 if (deltaY < 0 || detail > 0) {
+//                     root = (root + view) >= $document.height() ? root : root += step;
+//                 }
                 
-                if (deltaY > 0 || detail < 0) {
-                    root = root <= 0 ? 0 : root -= step;
-                }
+//                 if (deltaY > 0 || detail < 0) {
+//                     root = root <= 0 ? 0 : root -= step;
+//                 }
                 
-                $body.stop().animate({
-                    scrollTop: root
-                }, speed, option, function() {
-                    scroll = false;
-                });
-            }
+//                 $body.stop().animate({
+//                     scrollTop: root
+//                 }, speed, option, function() {
+//                     scroll = false;
+//                 });
+//             }
             
-            return false;
+//             return false;
             
-        }).on('scroll', function() {
+//         }).on('scroll', function() {
             
-            if (scrollY && !scroll) root = top;
-            if (!scroll) root = allWindow.scrollTop();
+//             if (scrollY && !scroll) root = top;
+//             if (!scroll) root = allWindow.scrollTop();
             
-        }).on('resize', function() {
+//         }).on('resize', function() {
             
-            if (scrollY && !scroll) view = allWindow.height();
+//             if (scrollY && !scroll) view = allWindow.height();
             
-        });       
-    };
+//         });       
+//     };
     
-    $.easing.default = function (x,t,b,c,d) {
-        return -c * ((t=t/d-1)*t*t*t - 1) + b;
-    };
+//     $.easing.default = function (x,t,b,c,d) {
+//         return -c * ((t=t/d-1)*t*t*t - 1) + b;
+//     };
 
-    if(animation) {
-    	$.scrollSpeed(100, 800);
-    }
+//     if(animation) {
+//     	$.scrollSpeed(100, 800);
+//     }
 
 
 /*Javascript Function For Sticky Navigation Bar AND SMOOTH SCROLLING*/
